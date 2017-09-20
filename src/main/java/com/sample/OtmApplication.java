@@ -7,6 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import com.sample.entity.Bankdetail;
 import com.sample.entity.Registration;
 import com.sample.repository.RegistrationRepository;
 
@@ -22,9 +23,8 @@ public class OtmApplication {
 	@Bean
 	CommandLineRunner runner(RegistrationRepository rr) {
 		return (args) -> {
-			rr.save(new Registration("Karthikeyan", "Karuppusamy"));
-			rr.save(new Registration("RajaRam", "SundarRaj"));
-
+			Registration tr = new Registration("Karthikeyan", "Karuppusamy");
+			tr.setBankdetail(new Bankdetail(344L, "HelloWorld"));
 			rr.findAll().forEach(r -> {
 				logger.info("data saved to memory " + r.getFirstname().toLowerCase());
 			});

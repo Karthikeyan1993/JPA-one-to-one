@@ -57,6 +57,9 @@ public class Bankdetail {
 
 	public void setRegistration(Registration registration) {
 		this.registration = registration;
+		if (registration != null) {
+			this.id = registration.getId();
+		}
 	}
 
 }
